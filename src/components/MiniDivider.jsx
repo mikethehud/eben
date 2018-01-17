@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from "./MiniDivider.scss";
+import styles from "./minidivider.scss";
 
 class MiniDivider extends React.Component {
 
