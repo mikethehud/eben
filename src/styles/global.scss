@@ -1,0 +1,130 @@
+@import "./variables.scss";
+@import "./buttons.scss";
+@import "./animations.scss";
+
+:global html {
+  /* Global template settings here */
+  height:100%;
+  width:100%;
+  box-sizing: border-box;
+  padding-top:$strokes;
+
+  background-color:$eben-blue;
+
+  body {
+    font-family: $main-family;
+    font-weight: 300;
+    font-size:11pt;
+    color: $eben-grey;
+    margin:0px;
+    padding:3em;
+    padding-bottom:14em;
+    background-color:$eben-white;
+    min-height:100%;
+    box-sizing: border-box;
+    position: relative;
+
+    ::selection {
+      background: $eben-blue;
+      color:#fff;
+    }
+    ::-moz-selection {
+      background: $eben-blue;
+      color:#fff;
+    }
+
+    h1 { font-size:$h1-size; line-height:1.2; font-weight:900; color:$eben-blue; }
+    h2 { font-size:$h2-size; line-height:1.2; font-weight:300; color:$eben-blue; }
+    h3, h4 { font-size:$h3-size; line-height:1.2; font-weight:600; }
+
+    h1.doubleHeader {
+      margin-top:0px;
+      > span {
+        font-weight:300;
+        font-size:$h2-size;
+        line-height:1.5;
+        display:block;
+        color:$eben-grey;
+        padding-top:.2em;
+
+        @media only screen and (max-width: $breakpointTwo) {
+          font-size:$h2-size-small;
+        }
+
+        img {
+          height:1em;
+          margin-left:0.1em;
+          margin-right:0.1em;
+          top:3px;
+          position: relative;
+        }
+      }
+    }
+
+    p, ul { margin-top: .3em; margin-bottom: .3em; }
+
+    b, strong {
+      font-weight:600;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left:25px;
+
+      li {
+        &:before {
+          content: '\2014';
+          position: absolute;
+          margin-left: -25px;
+        }
+        margin-bottom:0.25em;
+        margin-top:0.25em;
+      }
+    }
+
+    a {
+      color:$eben-blue;
+      font-weight:600;
+      position: relative;
+      z-index:2;
+      text-decoration: none;
+      white-space: nowrap;
+      display:inline-block;
+
+      &:before {
+        width:98%;
+        height:$strokes;
+        position: absolute;
+        content:"";
+        display:block;
+        background-color:$eben-blue-highlight;
+        opacity:0;
+        bottom:8px;
+        left:4px;
+        z-index:-1;
+        transition:opacity 0.3s ease-out;
+      }
+
+      &:hover {
+        color:#000;
+        &:before {
+          opacity:0.6;
+        }
+      }
+    }
+
+    .container {
+      max-width:960px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media only screen and (max-width: $breakpointTwo) {
+      h1 { font-size:$h1-size-small; }
+      h2 { font-size:$h2-size-small; }
+      h3, h4 { font-size:$h3-size-small; }
+      padding:2em;
+      padding-bottom:12em;
+    }
+  }
+}

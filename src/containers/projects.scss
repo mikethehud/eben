@@ -1,0 +1,180 @@
+@import "../styles/variables.scss";
+
+.filter {
+  position: relative;
+
+  h2 {
+    margin-top:0px;
+  }
+
+  .selector {
+    position: relative;
+    z-index:3;
+
+    // search icon hacked into the input
+    &:after {
+      content:"";
+      height:12px;
+      width:12px;
+      background-image:url('http://eben.co.nz:8080/storage/uploads/00000000028.svg');
+      display:block;
+      position: absolute;
+      right:0px;
+      top:18px;
+      z-index:3;
+      background-size:contain;
+    }
+
+    input {
+      background:transparent;
+      border:0px;
+      border-bottom: 1px solid $eben-blue;
+      height:2em;
+      width:100%;
+      box-sizing: border-box;
+      padding:0em;
+      color:$eben-blue;
+      margin-top:1em;
+      position:relative;
+
+      font-size:9pt;
+      font-family:$main-family;
+
+      &::-webkit-input-placeholder { padding-left: 3px; color: $eben-blue-highlight; font-family: $main-family; font-size:9pt; }
+      &::-moz-placeholder { padding-left: 3px; color: $eben-blue-highlight; font-family: $main-family; font-size:9pt; }
+      &:-ms-input-placeholder { padding-left: 3px; color: $eben-blue-highlight; font-family: $main-family; font-size:9pt; }
+      &:-moz-placeholder { padding-left: 3px; color: $eben-blue-highlight; font-family: $main-family; font-size:9pt; }
+
+      &:focus {
+        outline: 0 none;
+      }
+    }
+
+    ul {
+      position: absolute;
+      top:2.5em;
+      left:0px;
+      width:100%;
+      margin:0px;
+      padding:0px;
+      box-sizing: border-box;
+      display: block;
+      z-index:3;
+      box-shadow: $cardshadow;
+
+      li {
+        padding:.5em 1em;
+        background-color:#fff;
+        width:100%;
+        margin:0px;
+        font-size:9pt;
+        &:before { display:none; }
+        box-sizing: border-box;
+        display: block;
+        z-index:3;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .selected {
+    ul {
+      margin:0px;
+      padding:0px;
+      display:flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      margin-left:-5px;
+      margin-right:-5px;
+      margin-top:5px;
+
+      li {
+        display:inline-block;
+        padding:0.4em 0.8em;
+        background-color:$eben-blue-highlight;
+        cursor: pointer;
+        color:$eben-white;
+        position: relative;
+        font-size:8pt;
+        margin:5px;
+        margin-bottom:0px;
+
+        &:before { display:none; }
+      }
+    }
+  }
+
+}
+
+.arrowhint {
+  position: absolute;
+  left:-12.8em;
+  top:-1.8em;
+  height:auto;
+
+  .arrow {
+    position: absolute;
+    height:1.2em;
+    width:auto;
+    bottom:-1.6em;
+    right:1em;
+  }
+
+  .content {
+    font-size:7pt;
+    width:100%;
+    height:auto;
+    padding:.5em 1em;
+    position: relative;
+    border:1px dashed rgba($eben-silver,0.5);
+    color:$eben-silver;
+    font-weight: 300;
+    background-color:transparent;
+    transition: $button-transition;
+    box-sizing: border-box;
+
+    &:before {
+      display:none;
+    }
+
+    &:hover {
+      color:$eben-white;
+      border-color:$eben-blue-highlight;
+      background-color:$eben-blue-highlight;
+      box-shadow: $buttonshadow;
+    }
+  }
+}
+
+@media only screen and (max-width: $breakpointOne) {
+  .filter {
+    margin-bottom:1em;
+  }
+
+  .arrowhint {
+    display:none;
+  }
+}
+
+// React Animations
+:global {
+  .project-enter {
+    opacity:0;
+
+    &.project-enter-active {
+      opacity:1;
+      transition: opacity .8s ease-out;
+    }
+  }
+
+  .project-leave {
+
+    opacity:1;
+
+    &.project-leave-active {
+      opacity:0;
+      transition: opacity .8s ease-out;
+    }
+  }
+}

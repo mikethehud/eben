@@ -1,0 +1,43 @@
+// CSS Animations
+
+:global .rainbow {
+  height: 100%;
+  width: 100%;
+  left:0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+
+  background-color:$eben-blue;
+
+  -webkit-animation: Rainbow 10s ease infinite;
+  -moz-animation: Rainbow 10s ease infinite;
+  -o-animation: Rainbow 10s ease infinite;
+  animation: Rainbow 10s ease infinite;
+}
+
+@-webkit-keyframes :global(Rainbow) {
+    0%{background-color:#ff0000}
+    33%{background-color:#00ff00}
+    66%{background-color:$eben-blue}
+    100%{background-color:#ff0000}
+}
+@-moz-keyframes :global(Rainbow) {
+    0%{background-color:#ff0000}
+    33%{background-color:#00ff00}
+    66%{background-color:$eben-blue}
+    100%{background-color:#ff0000}
+}
+@-o-keyframes :global(Rainbow) {
+    0%{background-color:#ff0000}
+    33%{background-color:#00ff00}
+    66%{background-color:$eben-blue}
+    100%{background-color:#ff0000}
+}
+@keyframes :global(Rainbow) {
+    0%{background-color:#ff0000}
+    33%{background-color:#00ff00}
+    66%{background-color:$eben-blue}
+    100%{background-color:#ff0000}
+}

@@ -1,0 +1,33 @@
+@import "../styles/variables.scss";
+
+.menu {
+  margin-bottom:4em;
+
+  @media only screen and (max-width: $breakpointOne) {
+    margin-top:2em;
+    margin-bottom:2em;
+  }
+}
+
+.navigation {
+  text-align: right;
+
+  a {
+    margin-left:3em;
+    &:first-of-type { margin-left:0px; }
+    line-height:2;
+  }
+
+  @media only screen and (max-width: $breakpointOne) {
+    margin-top:2em;
+  }
+
+  @media only screen and (max-width: $breakpointTwo) {
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    a {
+      margin:0px;
+    }
+  }
+}

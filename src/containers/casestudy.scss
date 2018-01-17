@@ -1,0 +1,42 @@
+@import "../styles/variables.scss";
+
+.wideImgWrapper {
+  position: relative;
+  margin-left:-3em;
+  margin-right:-3em;
+
+  .wideImg {
+    width:100%;
+    height:auto;
+  }
+
+  .liveVersion {
+    border:$strokes / 2 solid $eben-blue;
+    padding:1em 2em;
+    position: absolute;
+    bottom:0px;
+    right:0px;
+    background-color:rgba($eben-blue,0);
+    transition: $button-transition;
+    &:hover {
+      &:before { display:none !important; }
+      background-color:rgba($eben-blue-highlight,1);
+      border-color:$eben-blue-highlight;
+      box-shadow: $buttonshadow;
+
+      color:$eben-white;
+    }
+  }
+
+}
+
+.backLink {
+  width:100%;
+  text-align: center;
+  padding-top:5em;
+  a {
+    color:$eben-blue;
+    font-size:$h2-size;
+    font-weight:300;
+  }
+}

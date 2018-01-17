@@ -1,0 +1,82 @@
+@import "../styles/variables.scss";
+
+.page {
+  opacity:1;
+  top:0em;
+  position: relative;
+}
+
+// React Animations
+:global {
+  .page-appear, .page-enter {
+
+    display:none;
+
+    &:first-of-type {
+      display:block;
+      opacity:0;
+      top:2em;
+
+      &.page-appear-active, &.page-enter-active {
+        opacity:1;
+        top:0em;
+        transition: opacity .8s ease-out, top .5s ease-out;
+      }
+    }
+  }
+
+  .page-leave {
+    display:none;
+  }
+}
+
+// Fetching animation
+.spinner {
+  width: 40px;
+  height: 40px;
+  background-color: $eben-blue;
+  position: fixed;
+  top:50%;
+  left:50%;
+  margin-left:-20px;
+  margin-top:-130px;
+  -webkit-animation: sk-scaleout 1.2s infinite ease-out;
+  animation: sk-scaleout 1.2s infinite ease-out;
+}
+
+@-webkit-keyframes sk-scaleout {
+  0% {
+    -webkit-transform: scale(0);
+    opacity:0;
+  }
+  50% {
+    opacity: 1;
+    -webkit-transform: scale(1.0);
+  }
+  70% {
+    opacity: 1;
+    -webkit-transform: scale(1.0);
+  }
+  100% {
+    -webkit-transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes sk-scaleout {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity:0;
+  }
+  50% {
+    opacity: 1;
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+ }
+  100% {
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}

@@ -1,0 +1,52 @@
+@import "../styles/variables.scss";
+
+.container {
+  padding-left:2.5em;
+  margin-bottom:4em;
+  position: relative;
+
+  &:last-of-type {
+    margin-bottom:0em;
+  }
+
+  .time {
+    color:$eben-blue;
+    font-weight:600;
+    font-size:9pt;
+    box-sizing: border-box;
+    position:absolute;
+    transform:rotateZ(270deg);
+    height:30px;
+    width:160px;
+    display:flex;
+    align-items: center;
+    justify-content: flex-end;
+    left:-6em;
+    top:70px;
+  }
+
+  .role {
+    color:$eben-silver;
+    font-size:9pt;
+  }
+
+  .location {
+    position: absolute;
+    top:0em;
+    right:0em;
+    color:$eben-blue;
+    line-height:1.2;
+
+    @media only screen and (max-width: $breakpointOne) {
+      font-size:9pt;
+    }
+
+    @media only screen and (max-width: $breakpointTwo) {
+      display:none;
+    }
+  }
+
+  h3 { margin-bottom: .2em; margin-top: 0em; }
+
+  h4 { margin-top: 1em; margin-bottom: .3em; }
+}

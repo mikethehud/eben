@@ -1,0 +1,47 @@
+@import "../styles/variables.scss";
+
+.footer {
+  background-color:$eben-blue;
+  padding:1.5em 0em;
+  color:$eben-white;
+  font-size:$h2-size;
+  @media only screen and (max-width: $breakpointTwo) {
+    font-size:$h2-size-small;
+  }
+  text-align: right;
+  display:block;
+
+  width:100%;
+  position: absolute;
+  bottom:0px;
+  left:0px;
+
+  transition: background-color 0.2s ease-out;
+
+  &:hover {
+    background-color:$eben-blue-highlight;
+    color:$eben-white;
+    &:before {
+      display:none;
+    }
+  }
+
+  a {
+    color:$eben-white;
+  }
+
+  .footerContent {
+    position: relative;
+    text-align: center;
+    line-height:3em;
+
+    span {
+      font-size:2em;
+      line-height:1em;
+      position: relative;
+      top:.2em;
+      display:inline-block;
+      padding-right:.2em;
+    }
+  }
+}

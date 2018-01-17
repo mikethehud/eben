@@ -1,0 +1,28 @@
+$eben-blue              : rgb(0,64,227);
+$eben-blue-highlight    : lighten($eben-blue,15%);
+$eben-grey              : #282728;
+$eben-grey-highlight    : lighten($eben-grey,15%);
+$eben-silver            : #808183;
+$eben-silver-highlight  : lighten($eben-silver,15%);
+$eben-yellow            : #fee980;
+$eben-red               : rgb(227,64,0);
+$eben-white             : rgb(241,241,241);
+
+$strokes                : 4px;
+
+// Fonts
+$main-family            : "Poppins", Helvetica;
+
+$cardshadow             : 0px 3px 10px 0px rgba($eben-grey,0.3);
+$buttonshadow           : 0px 3px 5px 0px rgba($eben-grey,0.3);
+$button-transition      : all 0.2s ease-out;
+
+$breakpointOne          : 800px;
+$breakpointTwo          : 460px;
+
+$h1-size                : 28pt;
+$h1-size-small          : 20pt;
+$h2-size                : 16pt;
+$h2-size-small          : 13pt;
+$h3-size                : 11pt;
+$h3-size-small          : 11pt;

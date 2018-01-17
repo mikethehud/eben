@@ -1,0 +1,36 @@
+@import "./variables.scss";
+
+:global .btn {
+  padding:.8em 1.6em;
+  border:0;
+  text-decoration: none;
+  color:$eben-white;
+  background-color:$eben-grey;
+
+  &.btn-small { padding:0.6em 1.2em; font-size:9pt; }
+  &.btn-tiny { padding:0.4em 0.8em; font-size:6pt; }
+
+  &.btn-primary {
+    background-color:$eben-blue;
+    &:hover {
+      background-color:$eben-blue-highlight;
+    }
+  }
+  &.btn-secondary {
+    background-color:$eben-silver;
+    &:hover {
+      background-color:$eben-silver-highlight;
+    }
+  }
+
+  &:hover {
+    background-color:$eben-grey-highlight;
+    box-shadow:$buttonshadow;
+    color:$eben-white;
+    &:before {
+      display:none;
+    }
+  }
+
+  transition: $button-transition;
+}

@@ -1,0 +1,12 @@
+@import "../styles/variables.scss";
+
+.divider {
+  height:$strokes;
+  margin-bottom: 1em;
+  width:60px;
+  background-color:$eben-blue;
+
+  @media only screen and (max-width: $breakpointTwo) {
+    height:$strokes/2;
+  }
+}
