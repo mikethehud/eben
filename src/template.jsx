@@ -17,6 +17,12 @@ export default ({ markup, helmet, stylesheet, initialData }) => {
 				<meta name="application-name" content="eben.co.nz">
 				<meta name="msapplication-config" content="/static/favicons/browserconfig.xml">
 				<meta name="theme-color" content="#0040e3">
+				<meta name="author" content="Mike Hudson">
+				<meta name="viewport" content="width=device-width, maximum-scale=1">
+				<meta name="description" content="I work with clients, agencies and teams to find intuitive solutions to complex problems and build sustainable and clean software. My skills include various technologies in the different web stack layers.">
+				<meta name="og:description" content="I work with clients, agencies and teams to find intuitive solutions to complex problems and build sustainable and clean software. My skills include various technologies in the different web stack layers.">
+				<meta name="og:site_name" content="EBEN">
+				<meta name="og:type" content="website">
 				<link href="https://fonts.googleapis.com/css?family=Poppins:300,600,900" rel="stylesheet">
 				${helmet.title.toString()}
 				${helmet.meta.toString()}

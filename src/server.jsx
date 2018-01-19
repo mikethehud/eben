@@ -16,7 +16,7 @@ const serverRenderer = ({ clientStats, serverStats }) => {
   return (req, res, next) => {
 
     // Initiate empty store
-    var store = initStore({ });
+    var store = initStore({ app: { server: true } });
 
     const currentRoutes = routes.filter(route => matchPath(req.url, route));
 

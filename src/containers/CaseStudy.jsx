@@ -54,6 +54,12 @@ class CaseStudy extends React.Component {
 
     let currentProject = this.props.projects.current;
 
+    // For helmet
+    let helmetData = {
+      title: "Case Study — " + currentProject.name,
+      website: "http://eben.co.nz/study/" + currentProject.slug
+    }
+
     if(!currentProject)
       return <Page fetched={false} />;
     else {
@@ -63,6 +69,12 @@ class CaseStudy extends React.Component {
     			<div className="container">
     				<Helmet
     					title={"EBEN / Case Study — " + currentProject.name}
+              meta={[
+                { name: 'twitter:site', content: helmetData.website },
+                { name: 'twitter:title', content: helmetData.title },
+                { property: 'og:title', content: helmetData.title },
+                { property: 'og:url', content: helmetData.website },
+              ]}
     				/>
             <MiniDivider />
             <h1 className="doubleHeader">

@@ -9,6 +9,8 @@ import App from "./App";
 
 let initialData = window.__PROPS__;
 let store = initStore(initialData);
+store.dispatch({ type: "BE_CLIENT" })
+console.log('INITDATE', store.getState());
 
 ReactDOM.hydrate(
   (

@@ -1,9 +1,20 @@
 import React from "react";
 import { CSSTransitionGroup } from "react-transition-group";
+import { connect } from "react-redux";
 
 import styles from "./page.scss";
 
+const mapStateToProps = (state, action) => {
+  return {
+    server: state.app.server
+  }
+}
+
 class Page extends React.Component {
+
+  constructor(props) {
+    super(props);
+  }
 
   componentDidMount() {
     window.scrollTo(0, 0);
@@ -11,14 +22,14 @@ class Page extends React.Component {
 
   render() {
 
-    let { fetched, children } = this.props;
+    let { fetched, children, server } = this.props;
 
     return (
       <div>
 
         {
           // Spinner if not fetched yet
-          !fetched &&
+          (!fetched || server) &&
           <div className={ styles.page } key="page-spinner" className={ styles.spinner }></div>
         }
 
@@ -30,7 +41,7 @@ class Page extends React.Component {
           transitionEnterTimeout={800}
           transitionLeaveTimeout={1}
       	>
-          { fetched &&
+          { fetched && !server &&
             <div className={ styles.page } key="page-children-">{ this.props.children }</div>
           }
         </CSSTransitionGroup>
@@ -40,4 +51,4 @@ class Page extends React.Component {
 
 }
 
-export default Page;
+export default connect(mapStateToProps)(Page);

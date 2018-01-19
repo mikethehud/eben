@@ -35,11 +35,23 @@ class Home extends React.Component {
 
 	render() {
 
+    // For helmet
+    let helmetData = {
+      title: "Hello, I am Mike. Full-Stack Developer, UI Designer, Web Consultant.",
+      website: "http://eben.co.nz"
+    }
+
 		return (
       <Page fetched={this.props.page}>
         <div className="container">
           <Helmet
   					title="EBEN / About — Mike Hudson Full-Stack"
+            meta={[
+              { name: 'twitter:site', content: helmetData.website },
+              { name: 'twitter:title', content: helmetData.title },
+              { property: 'og:title', content: helmetData.title },
+              { property: 'og:url', content: helmetData.website },
+            ]}
   				/>
           <MiniDivider />
           <Grid>

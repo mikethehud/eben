@@ -81,11 +81,23 @@ class Projects extends React.Component {
         )
     })
 
+    // For helmet
+    let helmetData = {
+      title: "Projects—Samples of previous work by Mike Hudson.",
+      website: "http://eben.co.nz/resume/"
+    }
+
 		return (
       <Page fetched={projects.fetched}>
   			<div className="container">
           <Helmet
   					title="EBEN / Projects — Mike Hudson Full-Stack"
+            meta={[
+              { name: 'twitter:site', content: helmetData.website },
+              { name: 'twitter:title', content: helmetData.title },
+              { property: 'og:title', content: helmetData.title },
+              { property: 'og:url', content: helmetData.website },
+            ]}
   				/>
           <MiniDivider />
   				<Grid>

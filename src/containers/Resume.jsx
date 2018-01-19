@@ -45,13 +45,23 @@ class Resume extends React.Component {
 
 	render() {
 
-    console.log(this.props.experiences);
+    // For helmet
+    let helmetData = {
+      title: "Résumé—Professional Experience and Education of Mike Hudson.",
+      website: "http://eben.co.nz/resume/"
+    }
 
 		return (
       <Page fetched={this.props.experiences && this.props.experiences.all.length > 0}>
         <div className="container">
           <Helmet
   					title="EBEN / Résumé — Mike Hudson Full-Stack"
+            meta={[
+              { name: 'twitter:site', content: helmetData.website },
+              { name: 'twitter:title', content: helmetData.title },
+              { property: 'og:title', content: helmetData.title },
+              { property: 'og:url', content: helmetData.website },
+            ]}
   				/>
           <MiniDivider />
   				<h1 className="doubleHeader">
