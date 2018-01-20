@@ -37,6 +37,7 @@
     "hex-rgba": "^1.0.2",
     "moment": "^2.20.1",
     "node-emoji": "^1.8.1",
+    "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-helmet": "^5.2.0",
     "react-markdown": "^3.1.3",

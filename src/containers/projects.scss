@@ -1,6 +1,7 @@
 @import "../styles/variables.scss";
 
 .filter {
+  @media only print { display:none; }
   position: relative;
 
   h2 {
@@ -16,7 +17,7 @@
       content:"";
       height:12px;
       width:12px;
-      background-image:url('http://eben.co.nz:8080/storage/uploads/00000000028.svg');
+      background-image:url("http://eben.co.nz:8080/storage/uploads/00000000028.svg");
       display:block;
       position: absolute;
       right:0px;

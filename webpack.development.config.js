@@ -1,28 +1,28 @@
-const path = require('path');
+const path = require("path");
 
 module.exports = [
 	{
 		/*
 		* CLIENT CONFIG
 		*/
-		name: 'client',
-		target: 'web',
-		entry: './src/client.jsx',
+		name: "client",
+		target: "web",
+		entry: "./src/client.js",
 		output: {
-			path: path.join(__dirname, 'static'),
-			filename: 'client.js',
-			publicPath: '/static/',
+			path: path.join(__dirname, "static"),
+			filename: "client.js",
+			publicPath: "/static/",
 		},
 		resolve: {
-			extensions: ['.js', '.jsx']
+			extensions: [".js", ".jsx"]
 		},
-		devtool: 'source-map',
+		devtool: "source-map",
 		module: {
 			rules: [
 				{
 					test: /\.(js|jsx)$/,
 					exclude: /(node_modules\/)/,
-					loader: 'babel-loader'
+					loader: "babel-loader"
 				},
 				{
 	        test: /\.(png|jpg|woff|woff2|eot|ttf|svg)$/,
@@ -31,16 +31,16 @@ module.exports = [
 				{
 					test: /\.scss$/,
 					use: [
-						{ loader: 'style-loader' },
-						{ loader: 'css-loader',
+						{ loader: "style-loader" },
+						{ loader: "css-loader",
 							options: {
 								modules: true,
 								importLoaders: 1,
-								localIdentName: '[name]__[local]___[hash:base64:5]',
+								localIdentName: "[name]__[local]___[hash:base64:5]",
 								sourceMap: true
 							}
 						},
-						{ loader: 'sass-loader' }
+						{ loader: "sass-loader" }
 					]
 				}
 			],
@@ -50,25 +50,25 @@ module.exports = [
 		/*
 		* SERVER CONFIG
 		*/
-		name: 'server',
-		target: 'node',
-		entry: './src/server.jsx',
+		name: "server",
+		target: "node",
+		entry: "./src/server.js",
 		output: {
-			path: path.join(__dirname, 'static'),
-			filename: 'server.js',
-			libraryTarget: 'commonjs2',
-			publicPath: '/static/',
+			path: path.join(__dirname, "static"),
+			filename: "server.js",
+			libraryTarget: "commonjs2",
+			publicPath: "/static/",
 		},
-		devtool: 'source-map',
+		devtool: "source-map",
 		resolve: {
-			extensions: ['.js', '.jsx']
+			extensions: [".js", ".jsx"]
 		},
 		module: {
 			rules: [
 				{
 					test: /\.(js|jsx)$/,
 					exclude: /(node_modules\/)/,
-					loader: 'babel-loader'
+					loader: "babel-loader"
 				},
 				{
 	        test: /\.(png|jpg|woff|woff2|eot|ttf|svg)$/,
@@ -77,16 +77,16 @@ module.exports = [
 				{
 					test: /\.scss$/,
 					use: [
-						{ loader: 'isomorphic-style-loader' },
-						{ loader: 'css-loader',
+						{ loader: "isomorphic-style-loader" },
+						{ loader: "css-loader",
 							options: {
 								modules: true,
 								importLoaders: 1,
-								localIdentName: '[name]__[local]___[hash:base64:5]',
+								localIdentName: "[name]__[local]___[hash:base64:5]",
 								sourceMap: true
 							}
 						},
-						{ loader: 'sass-loader' }
+						{ loader: "sass-loader" }
 					]
 				}
 			],

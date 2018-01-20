@@ -3,14 +3,13 @@ import ReactDOM from "react-dom";
 import { BrowserRouter, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 
-import initStore from "./store";
-
 import App from "./App";
+
+import initStore from "./store";
 
 let initialData = window.__PROPS__;
 let store = initStore(initialData);
 store.dispatch({ type: "BE_CLIENT" })
-console.log('INITDATE', store.getState());
 
 ReactDOM.hydrate(
   (
@@ -20,7 +19,7 @@ ReactDOM.hydrate(
       </BrowserRouter>
     </Provider>
   )
-, document.getElementById('root'));
+, document.getElementById("root"));
 
 
 delete window.__PROPS__;

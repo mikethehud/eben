@@ -10,6 +10,9 @@
 }
 
 .navigation {
+
+  @media only print { display:none; }
+
   text-align: right;
 
   a {

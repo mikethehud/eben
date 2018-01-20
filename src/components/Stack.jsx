@@ -1,8 +1,17 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import styles from "./stack.scss";
 
 class Stack extends React.Component {
+
+  static propTypes = {
+    // OPTIONAL: array of technologies with the directus structure
+    technologies: PropTypes.arrayOf(PropTypes.object),
+
+    // OPTIONAL: small form of the stack object
+    small: PropTypes.bool
+  }
 
   render() {
 
@@ -11,11 +20,11 @@ class Stack extends React.Component {
     let frontend = [];
     let backend = [];
 
-    let smallStyles = small ? styles.small : '';
+    let smallStyles = small ? styles.small : "";
 
     if(technologies) {
-      frontend = technologies.filter((element) => element.type == 'frontend');
-      backend = technologies.filter((element) => element.type == 'backend');
+      frontend = technologies.filter((element) => element.type == "frontend");
+      backend = technologies.filter((element) => element.type == "backend");
     }
 
     return (

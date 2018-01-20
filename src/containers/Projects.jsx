@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { CSSTransitionGroup } from "react-transition-group";
-import Helmet from "react-helmet";
 import Selekt from "react-selekt";
 
 import Project from "../components/Project";
@@ -38,11 +37,9 @@ class Projects extends React.Component {
     let before = this.props.projects.lastFetched;
     let now = + Date.now();
 
+    // re-fetch every 100000ms
     if(!before || (now - before) > 100000) {
       this.props.dispatch(fetchProjects());
-    }
-    else {
-      console.log('Not fetching yet');
     }
 	}
 
@@ -55,17 +52,17 @@ class Projects extends React.Component {
     const { projects } = this.props;
     const { filter } = this.state;
 
-    let filters = [
-      'ReactJS',
-      'NodeJS',
-      'Bootstrap',
-      'Wordpress',
-      'Express',
-      'PHP',
-      'MySQL',
-      'MongoDB',
-      'REST API'
-    ]
+    let filters = [];
+    projects.all.forEach(item => {
+      let technologies = item.technologies;
+      // push the names into filters
+      technologies.data.forEach(tech => {
+        if(filters.indexOf(tech.name) == -1)
+          filters.push(tech.name)
+      });
+    })
+
+    console.log(filters);
 
     let filteredProjects = projects.all.filter((item) => {
       let techs = item.technologies;
@@ -75,7 +72,6 @@ class Projects extends React.Component {
           techs &&
           techs.data &&
           techs.data.filter((techitem) => {
-            console.log('filtering', techitem.name, 'with', filter);
             return filter.indexOf(techitem.name) > -1
           }).length > 0
         )
@@ -83,22 +79,16 @@ class Projects extends React.Component {
 
     // For helmet
     let helmetData = {
-      title: "Projects—Samples of previous work by Mike Hudson.",
-      website: "http://eben.co.nz/resume/"
+      title: "Projects — Mike Hudson Full-Stack",
+      meta: {
+        title: "Projects—Samples of previous work by Mike Hudson.",
+        website: "http://eben.co.nz/projects/"
+      }
     }
 
 		return (
-      <Page fetched={projects.fetched}>
+      <Page fetched={Boolean(projects.fetched)} helmetData={helmetData}>
   			<div className="container">
-          <Helmet
-  					title="EBEN / Projects — Mike Hudson Full-Stack"
-            meta={[
-              { name: 'twitter:site', content: helmetData.website },
-              { name: 'twitter:title', content: helmetData.title },
-              { property: 'og:title', content: helmetData.title },
-              { property: 'og:url', content: helmetData.website },
-            ]}
-  				/>
           <MiniDivider />
   				<Grid>
             <Grid.Column cols={6}>
@@ -110,7 +100,7 @@ class Projects extends React.Component {
             <Grid.Column cols={6} className={ styles.filter }>
               <div className={ styles.arrowhint }>
                 <img src={Arrow} className={ styles.arrow } />
-                <a href="https://github.com/mikethehud/react-selekt" alt="React Selekt" className={ styles.content } target="_blank">Check out this custom React component</a>
+                <a href="https://github.com/mikethehud/react-selekt" title="React Selekt" className={ styles.content } target="_blank">Check out this custom React component</a>
               </div>
               <Selekt
                 options={filters}

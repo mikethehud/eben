@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import Helmet from "react-helmet";
 
 import Experience from "../components/Experience";
 import { fetchExperiences } from "../actions/experiencesActions";
@@ -39,7 +38,7 @@ class Resume extends React.Component {
       this.props.dispatch(fetchExperiences());
     }
     else {
-      console.log('Not fetching yet');
+      console.log("Not fetching yet");
     }
 	}
 
@@ -47,22 +46,16 @@ class Resume extends React.Component {
 
     // For helmet
     let helmetData = {
-      title: "Résumé—Professional Experience and Education of Mike Hudson.",
-      website: "http://eben.co.nz/resume/"
+      title: "EBEN / Résumé — Mike Hudson Full-Stack",
+      meta: {
+        title: "Résumé—Professional Experience and Education of Mike Hudson.",
+        website: "http://eben.co.nz/resume/"
+      }
     }
 
 		return (
-      <Page fetched={this.props.experiences && this.props.experiences.all.length > 0}>
+      <Page fetched={Boolean(this.props.experiences && this.props.experiences.all.length > 0)} helmetData={helmetData}>
         <div className="container">
-          <Helmet
-  					title="EBEN / Résumé — Mike Hudson Full-Stack"
-            meta={[
-              { name: 'twitter:site', content: helmetData.website },
-              { name: 'twitter:title', content: helmetData.title },
-              { property: 'og:title', content: helmetData.title },
-              { property: 'og:url', content: helmetData.website },
-            ]}
-  				/>
           <MiniDivider />
   				<h1 className="doubleHeader">
             Résumé
@@ -80,12 +73,12 @@ class Resume extends React.Component {
             <Grid.Column cols={5} pull className={ styles.secondRow }>
               <h2>Education</h2>
               <Experience
-                title = 'University of Tübingen'
-                location = 'Germany'
-                role = 'Bachelor of Science'
-                content = 'BSc. in "Media and Computer Science" with a focus on human computer interaction and web development.'
-                start_date = '2011-10-01'
-                end_date = '2015-08-31'
+                title = "University of Tübingen"
+                location = "Germany"
+                role = "Bachelor of Science"
+                content = "BSc. in "Media and Computer Science" with a focus on human computer interaction and web development."
+                start_date = "2011-10-01"
+                end_date = "2015-08-31"
               />
             </Grid.Column>
           </Grid>

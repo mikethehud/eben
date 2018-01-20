@@ -5,11 +5,11 @@ const selectProject = (slug) => {
   return { type: "SELECT_CURRENT_PROJECT", payload: slug }
 }
 
-const fetchProjects = (slug = '') => {
+const fetchProjects = (slug = "") => {
   return function(dispatch) {
     dispatch({ type: "FETCH_PROJECTS_START" });
 
-    return axios.get(config.api.baseUrl+'/projects/rows?order[sort]=ASC')
+    return axios.get(config.api.baseUrl+"/projects/rows?order[sort]=ASC")
       .then((response) => {
         let data = response.data && response.data.data;
   			dispatch({ type: "FETCH_PROJECTS_FULFILLED", payload: data })

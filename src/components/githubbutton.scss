@@ -1,6 +1,9 @@
 @import "../styles/variables.scss";
 
 .githubbutton {
+
+  @media only print { display:none; }
+
   display:block;
   position: absolute;
   top:$strokes;

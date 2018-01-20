@@ -1,10 +1,10 @@
 import React from "react";
-import Helmet from "react-helmet";
 import { connect } from "react-redux";
 import ReactMarkdown from "react-markdown";
 import { emojify } from "node-emoji";
 import config from "../../config.js";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import Content from "../components/Content";
 import MiniDivider from "../components/MiniDivider";
@@ -34,48 +34,57 @@ class CaseStudy extends React.Component {
 	}
 
   componentDidMount() {
-    let before = this.props.projects.lastFetched;
+
+    let { projects, match, dispatch } = this.props;
+
+    let before = projects.lastFetched;
     let now = + Date.now();
 
-    let slug = this.props.match.params.slug;
+    let slug = match.params.slug;
 
-    console.log(slug);
-
+    // re-fetch every 100000ms
     if(!before || (now - before) > 100000) {
-      this.props.dispatch(fetchProjects(slug));
+      dispatch(fetchProjects(slug));
     }
     else {
-      console.log("Just select Project...");
-      this.props.dispatch(selectProject(slug));
+      // just change to the current project
+      dispatch(selectProject(slug));
     }
 	}
 
 	render() {
 
-    let currentProject = this.props.projects.current;
+    let { projects } = this.props;
 
-    // For helmet
-    let helmetData = {
-      title: "Case Study — " + currentProject.name,
-      website: "http://eben.co.nz/study/" + currentProject.slug
+    let currentProject = projects.current;
+
+    if(!currentProject) {
+
+      // For helmet
+      let helmetData = {
+        title: "EBEN / Case Study",
+        meta: {
+          title: "Case Study",
+          website: "http://eben.co.nz/projects/"
+        }
+      }
+      return <Page fetched={false} helmetData={helmetData} />;
+
     }
-
-    if(!currentProject)
-      return <Page fetched={false} />;
     else {
-      return (
-        <Page fetched={true}>
 
+      // For helmet
+      let helmetData = {
+        title: "EBEN / Case Study — " + currentProject.name,
+        meta: {
+          title: "Case Study — " + currentProject.name,
+          website: "http://eben.co.nz/study/" + currentProject.slug
+        }
+      }
+
+      return (
+        <Page fetched={true} helmetData={helmetData}>
     			<div className="container">
-    				<Helmet
-    					title={"EBEN / Case Study — " + currentProject.name}
-              meta={[
-                { name: 'twitter:site', content: helmetData.website },
-                { name: 'twitter:title', content: helmetData.title },
-                { property: 'og:title', content: helmetData.title },
-                { property: 'og:url', content: helmetData.website },
-              ]}
-    				/>
             <MiniDivider />
             <h1 className="doubleHeader">
               {currentProject.name}

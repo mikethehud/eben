@@ -5,20 +5,20 @@ import CaseStudy from "./containers/CaseStudy";
 
 const routes = [
   {
-    path: '/',
+    path: "/",
     component: Home,
     exact: true
   },
   {
-    path: '/resume',
+    path: "/resume",
     component: Resume
   },
   {
-    path: '/projects',
+    path: "/projects",
     component: Projects
   },
   {
-    path: '/study/:slug',
+    path: "/study/:slug",
     component: CaseStudy
   }
 ]

@@ -1,31 +1,31 @@
-const path = require('path');
-const dist = path.join(__dirname, 'dist');
-const webpack = require('webpack');
-const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const StatsPlugin = require('stats-webpack-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const path = require("path");
+const dist = path.join(__dirname, "dist");
+const webpack = require("webpack");
+const WebpackCleanupPlugin = require("webpack-cleanup-plugin");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const StatsPlugin = require("stats-webpack-plugin");
+const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports = [
 	{
-		name: 'client',
-		target: 'web',
-		entry: './src/client.jsx',
+		name: "client",
+		target: "web",
+		entry: "./src/client.js",
 		output: {
-			path: path.join(__dirname, 'static'),
-			filename: 'client.js',
-			publicPath: '/static/',
+			path: path.join(__dirname, "static"),
+			filename: "client.js",
+			publicPath: "/static/",
 		},
 		resolve: {
-			extensions: ['.js', '.jsx']
+			extensions: [".js", ".jsx"]
 		},
-		devtool: 'source-map',
+		devtool: "source-map",
 		module: {
 			rules: [
 				{
 					test: /\.(js|jsx)$/,
 					exclude: /(node_modules\/)/,
-					loader: 'babel-loader'
+					loader: "babel-loader"
 				},
 				{
 	        test: /\.(png|jpg|woff|woff2|eot|ttf|svg)$/,
@@ -35,19 +35,19 @@ module.exports = [
 					test: /\.scss$/,
 					use: [
 						{
-							loader: 'style-loader',
+							loader: "style-loader",
 						},
 						{
-							loader: 'css-loader',
+							loader: "css-loader",
 							options: {
 								modules: true,
 								importLoaders: 1,
-								localIdentName: '[hash:base64:10]',
+								localIdentName: "[hash:base64:10]",
 								sourceMap: true
 							}
 						},
 						{
-							loader: 'sass-loader'
+							loader: "sass-loader"
 						}
 					]
 				}
@@ -55,8 +55,8 @@ module.exports = [
 		},
 		plugins: [
 			new webpack.DefinePlugin({
-				'process.env': {
-					NODE_ENV: '"production"'
+				"process.env": {
+					NODE_ENV: ""production""
 				}
 			}),
 			new webpack.optimize.UglifyJsPlugin({
@@ -71,25 +71,25 @@ module.exports = [
 		]
 	},
 	{
-		name: 'server',
-		target: 'node',
-		entry: './src/server.jsx',
+		name: "server",
+		target: "node",
+		entry: "./src/server.js",
 		output: {
-			path: path.join(__dirname, 'static'),
-			filename: 'server.js',
-			libraryTarget: 'commonjs2',
-			publicPath: '/static/',
+			path: path.join(__dirname, "static"),
+			filename: "server.js",
+			libraryTarget: "commonjs2",
+			publicPath: "/static/",
 		},
-		devtool: 'source-map',
+		devtool: "source-map",
 		resolve: {
-			extensions: ['.js', '.jsx']
+			extensions: [".js", ".jsx"]
 		},
 		module: {
 			rules: [
 				{
 					test: /\.(js|jsx)$/,
 					exclude: /(node_modules\/)/,
-					loader: 'babel-loader'
+					loader: "babel-loader"
 				},
 				{
 	        test: /\.(png|jpg|woff|woff2|eot|ttf|svg)$/,
@@ -101,16 +101,16 @@ module.exports = [
 						fallback: "isomorphic-style-loader",
 						use: [
 							{
-								loader: 'css-loader',
+								loader: "css-loader",
 								options: {
 									modules: true,
 									importLoaders: 1,
-									localIdentName: '[hash:base64:10]',
+									localIdentName: "[hash:base64:10]",
 									sourceMap: true
 								}
 							},
 							{
-								loader: 'sass-loader'
+								loader: "sass-loader"
 							}
 						]
 					})
@@ -119,13 +119,13 @@ module.exports = [
 		},
 		plugins: [
 			new ExtractTextPlugin({
-				filename: 'styles.css',
+				filename: "styles.css",
 				allChunks: true
 			}),
 			new OptimizeCssAssetsPlugin({
 				cssProcessorOptions: { discardComments: { removeAll: true } }
 			}),
-			new StatsPlugin('stats.json', {
+			new StatsPlugin("stats.json", {
 				chunkModules: true,
 				modules: true,
 				chunks: true,

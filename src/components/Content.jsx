@@ -3,6 +3,7 @@ import React from "react";
 import styles from "./content.scss";
 
 class Content extends React.Component {
+  // no props
 
   render() {
     return (

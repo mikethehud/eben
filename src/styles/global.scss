@@ -17,7 +17,7 @@
     font-size:11pt;
     color: $eben-grey;
     margin:0px;
-    padding:3em;
+    padding:$body-pad-normal;
     padding-bottom:14em;
     background-color:$eben-white;
     min-height:100%;
@@ -47,16 +47,11 @@
         color:$eben-grey;
         padding-top:.2em;
 
+        a::before { margin-top:5px; }
+
         @media only screen and (max-width: $breakpointTwo) {
           font-size:$h2-size-small;
-        }
-
-        img {
-          height:1em;
-          margin-left:0.1em;
-          margin-right:0.1em;
-          top:3px;
-          position: relative;
+          a::before { margin-top:4px; }
         }
       }
     }
@@ -73,7 +68,7 @@
 
       li {
         &:before {
-          content: '\2014';
+          content: "\2014";
           position: absolute;
           margin-left: -25px;
         }
@@ -99,10 +94,11 @@
         display:block;
         background-color:$eben-blue-highlight;
         opacity:0;
-        bottom:8px;
+        top:50%;
         left:4px;
+        margin-top:2px;
         z-index:-1;
-        transition:opacity 0.3s ease-out;
+        transition: $button-transition;
       }
 
       &:hover {
@@ -123,7 +119,7 @@
       h1 { font-size:$h1-size-small; }
       h2 { font-size:$h2-size-small; }
       h3, h4 { font-size:$h3-size-small; }
-      padding:2em;
+      padding:$body-pad-small;
       padding-bottom:12em;
     }
   }

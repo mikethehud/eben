@@ -3,6 +3,6 @@ module.exports = {
     PORT: 3100
   },
   api: {
-    url: 'http://localhost:8000/api/'
+    url: "http://localhost:8000/api/"
   }
 }

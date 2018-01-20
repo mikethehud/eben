@@ -17,7 +17,7 @@ $cardshadow             : 0px 3px 10px 0px rgba($eben-grey,0.3);
 $buttonshadow           : 0px 3px 5px 0px rgba($eben-grey,0.3);
 $button-transition      : all 0.2s ease-out;
 
-$breakpointOne          : 800px;
+$breakpointOne          : 975px;
 $breakpointTwo          : 460px;
 
 $h1-size                : 28pt;
@@ -26,3 +26,7 @@ $h2-size                : 16pt;
 $h2-size-small          : 13pt;
 $h3-size                : 11pt;
 $h3-size-small          : 11pt;
+
+// Global body paddings
+$body-pad-normal        : 3em;
+$body-pad-small         : 2em;

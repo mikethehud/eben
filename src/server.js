@@ -5,12 +5,12 @@ import { Helmet } from "react-helmet";
 import serialize from "serialize-javascript";
 import { Provider } from "react-redux";
 
-import routes from "./routes";
-import initStore from "./store";
-
-import Template from "./template";
 import App from "./App";
 import Home from "./containers/Home";
+
+import routes from "./routes";
+import initStore from "./store";
+import Template from "./template";
 
 const serverRenderer = ({ clientStats, serverStats }) => {
   return (req, res, next) => {
@@ -50,11 +50,11 @@ const serverRenderer = ({ clientStats, serverStats }) => {
           markup: markup,
           helmet: helmet,
           initialData: serialize(store.getState()),
-          stylesheet: (process.env.NODE_ENV == 'development') ? '' : stylesheet
+          stylesheet: (process.env.NODE_ENV == "development") ? "" : stylesheet
         }))
       })
       .catch(err => {
-        console.log('error', err);
+        console.log("error", err);
       })
   }
 }

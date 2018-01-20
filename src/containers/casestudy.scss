@@ -2,8 +2,13 @@
 
 .wideImgWrapper {
   position: relative;
-  margin-left:-3em;
-  margin-right:-3em;
+  margin-left:-$body-pad-normal;
+  margin-right:-$body-pad-normal;
+
+  @media only screen and (max-width: $breakpointOne) {
+    margin-left:-$body-pad-small;
+    margin-right:-$body-pad-small;
+  }
 
   .wideImg {
     width:100%;
@@ -26,6 +31,12 @@
 
       color:$eben-white;
     }
+
+    @media only screen and (max-width: $breakpointOne) {
+      right:1em;
+      padding:.5em 1em;
+      font-size:9pt;
+    }
   }
 
 }
@@ -38,5 +49,7 @@
     color:$eben-blue;
     font-size:$h2-size;
     font-weight:300;
+
+    &:before { margin-top:6px; width:85%; left:30px; }
   }
 }

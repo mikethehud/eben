@@ -1,5 +1,4 @@
 import React from "react";
-import Helmet from "react-helmet";
 import { connect } from "react-redux";
 import ReactMarkdown from "react-markdown";
 import { emojify } from "node-emoji";
@@ -21,38 +20,35 @@ const mapStateToProps = (state, action) => {
 class Home extends React.Component {
 
   static fetchData (store, match = null) {
-		return store.dispatch(fetchPage('home'));
+		return store.dispatch(fetchPage("home"));
 	}
 
   componentDidMount() {
-    /*let before = this.props.experiences.lastFetched;
+    let { experiences, dispatch } = this.props;
+
+    let before = experiences.lastFetched;
     let now = + Date.now();
 
-    if(!before || (now - before) > 100000) {*/
-      this.props.dispatch(fetchPage('home'));
-    /*}*/
+    // re-fetch every 100000ms
+    if(!before || (now - before) > 100000) {
+      dispatch(fetchPage("home"));
+    }
 	}
 
 	render() {
 
     // For helmet
     let helmetData = {
-      title: "Hello, I am Mike. Full-Stack Developer, UI Designer, Web Consultant.",
-      website: "http://eben.co.nz"
+      title: "About — Mike Hudson Full-Stack",
+      meta: {
+        title: "Hello, I am Mike. Full-Stack Developer, UI Designer, Web Consultant.",
+        website: "http://eben.co.nz/"
+      }
     }
 
 		return (
-      <Page fetched={this.props.page}>
+      <Page fetched={Boolean(this.props.page)} helmetData={helmetData}>
         <div className="container">
-          <Helmet
-  					title="EBEN / About — Mike Hudson Full-Stack"
-            meta={[
-              { name: 'twitter:site', content: helmetData.website },
-              { name: 'twitter:title', content: helmetData.title },
-              { property: 'og:title', content: helmetData.title },
-              { property: 'og:url', content: helmetData.website },
-            ]}
-  				/>
           <MiniDivider />
           <Grid>
             <Grid.Column cols={6}>

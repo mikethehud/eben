@@ -1,28 +1,58 @@
 import React from "react";
+import PropTypes from "prop-types";
 import ReactMarkdown from "react-markdown";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import config from "../../config.js";
 import hexToRgba from "hex-rgba";
 
-import styles from "./project.scss";
-
 import Stack from "./Stack";
+
+import styles from "./project.scss";
 
 class Project extends React.Component {
 
+  static propTypes = {
+    // REQUIRED: string name of project
+    name: PropTypes.string.isRequired,
+
+    // OPTIONAL: list of technologies
+    technologies: PropTypes.object.shape({
+      meta: PropTypes.object,
+      data: PropTypes.array
+    }),
+
+    // REQUIRED: string describing the role
+    role: PropTypes.string.isRequired,
+
+    // OPTIONAL: background image in directus schema
+    background: PropTypes.object.shape({
+      meta: ProtoTypes.object,
+      data: ProtoTypes.object
+    }),
+
+    // OPTIONAL: hex color code string (w/o #)
+    color: PropTypes.string,
+
+    // REQUIRED: slug to form link to details page
+    slug: PropTypes.string.isRequired,
+
+    // OPTIONAL: theme choice for the project panel
+    theme: PropTypes.string
+  }
+
   render() {
 
-    let { name, technologies, role, logo, color, slug, theme  } = this.props;
+    let { name, technologies, role, background, color, slug, theme  } = this.props;
 
-    let logoUrl = logo && logo.data ? config.api.fileUrl + logo.data.url : '';
-    let backgroundColor = color ? "#" + color : "#" + "0040e3";
+    let backgroundUrl = background ? config.api.fileUrl + background.data.url : "";
+    let backgroundColor = color ? "#" + color : "#0040e3";
 
     return (
       <div className={ styles.container }>
         <div
           className={ styles.infosWrapper + " " + styles[theme] }
-          style={{ background: "url('"+logoUrl+"')" }}
+          style={{ background: "url('"+backgroundUrl+"')" }}
         >
           <div className={ styles.infos } style={{ backgroundColor: hexToRgba(backgroundColor, 95)  }}>
             <h3>{name}</h3>

@@ -1,6 +1,8 @@
 @import "../styles/variables.scss";
 
 .footer {
+  @media only print { display:none; }
+
   background-color:$eben-blue;
   padding:1.5em 0em;
   color:$eben-white;

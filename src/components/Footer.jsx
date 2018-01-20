@@ -1,10 +1,11 @@
 import React from "react";
 
-import styles from "./footer.scss"
-
 import Grid from "./Grid";
 
+import styles from "./footer.scss"
+
 class Footer extends React.Component {
+  // no props
 
   render() {
     return (
