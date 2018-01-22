@@ -43,9 +43,9 @@ class Project extends React.Component {
 
   render() {
 
-    let { name, technologies, role, background, color, slug, theme  } = this.props;
+    let { name, technologies, role, logo, color, slug, theme  } = this.props;
 
-    let backgroundUrl = background ? config.api.fileUrl + background.data.url : "";
+    let backgroundUrl = logo ? config.api.fileUrl + logo.data.url : "";
     let backgroundColor = color ? "#" + color : "#0040e3";
 
     return (

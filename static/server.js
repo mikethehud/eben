@@ -51453,13 +51453,13 @@ var Project = function (_React$Component) {
           name = _props.name,
           technologies = _props.technologies,
           role = _props.role,
-          background = _props.background,
+          logo = _props.logo,
           color = _props.color,
           slug = _props.slug,
           theme = _props.theme;
 
 
-      var backgroundUrl = background ? _config2.default.api.fileUrl + background.data.url : "";
+      var backgroundUrl = logo ? _config2.default.api.fileUrl + logo.data.url : "";
       var backgroundColor = color ? "#" + color : "#0040e3";
 
       return _react2.default.createElement(
