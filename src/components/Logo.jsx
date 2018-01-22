@@ -9,12 +9,12 @@ class Logo extends React.Component {
 
   render() {
 		return (
-      <div>
+      <Link to="/">
         <img src={LogoImage} alt="eben Logo" className={ styles.image } />
         <div className={ styles.heading }>
           Full-Stack Portfolio & Résumé of Mike Hudson
         </div>
-      </div>
+      </Link>
     )
   }
 

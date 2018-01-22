@@ -17,7 +17,7 @@ class Project extends React.Component {
     name: PropTypes.string.isRequired,
 
     // OPTIONAL: list of technologies
-    technologies: PropTypes.object.shape({
+    technologies: PropTypes.shape({
       meta: PropTypes.object,
       data: PropTypes.array
     }),
@@ -26,9 +26,9 @@ class Project extends React.Component {
     role: PropTypes.string.isRequired,
 
     // OPTIONAL: background image in directus schema
-    background: PropTypes.object.shape({
-      meta: ProtoTypes.object,
-      data: ProtoTypes.object
+    background: PropTypes.shape({
+      meta: PropTypes.object,
+      data: PropTypes.object
     }),
 
     // OPTIONAL: hex color code string (w/o #)
@@ -66,7 +66,7 @@ class Project extends React.Component {
           />
         </div>
 
-        <Link to={ "study/" + slug } className={ styles.overlay }>
+        <Link to={ "/study/" + slug } className={ styles.overlay }>
           <span className={ styles.overlayContent }>
             View Project &rarr;
           </span>

@@ -34,12 +34,15 @@ class Projects extends React.Component {
 	}
 
 	componentDidMount() {
-    let before = this.props.projects.lastFetched;
+
+    let { projects, dispatch } = this.props;
+
+    let before = projects.lastFetched;
     let now = + Date.now();
 
     // re-fetch every 100000ms
     if(!before || (now - before) > 100000) {
-      this.props.dispatch(fetchProjects());
+      dispatch(fetchProjects());
     }
 	}
 
@@ -61,8 +64,6 @@ class Projects extends React.Component {
           filters.push(tech.name)
       });
     })
-
-    console.log(filters);
 
     let filteredProjects = projects.all.filter((item) => {
       let techs = item.technologies;

@@ -11,7 +11,6 @@ import Grid from "../components/Grid";
 import Page from "./Page";
 
 const mapStateToProps = (state, action) => {
-
   return {
     page: state.pages.items.home,
   }
@@ -24,18 +23,16 @@ class Home extends React.Component {
 	}
 
   componentDidMount() {
-    let { experiences, dispatch } = this.props;
+    let { page, dispatch } = this.props;
 
-    let before = experiences.lastFetched;
-    let now = + Date.now();
-
-    // re-fetch every 100000ms
-    if(!before || (now - before) > 100000) {
+    // fetch if no page
+    if(!page)
       dispatch(fetchPage("home"));
-    }
 	}
 
 	render() {
+
+    let { page } = this.props;
 
     // For helmet
     let helmetData = {
@@ -47,7 +44,7 @@ class Home extends React.Component {
     }
 
 		return (
-      <Page fetched={Boolean(this.props.page)} helmetData={helmetData}>
+      <Page fetched={Boolean(page)} helmetData={helmetData}>
         <div className="container">
           <MiniDivider />
           <Grid>
@@ -61,7 +58,7 @@ class Home extends React.Component {
             </Grid.Column>
             <Grid.Column cols={6}>
               <Content>
-                {this.props.page && <ReactMarkdown source={emojify(this.props.page.content)} />}
+                {page && <ReactMarkdown source={emojify(page.content)} />}
               </Content>
             </Grid.Column>
           </Grid>

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { CSSTransitionGroup } from "react-transition-group";
 import { connect } from "react-redux";
 import Helmet from "react-helmet";
@@ -21,11 +22,11 @@ class Page extends React.Component {
     server: PropTypes.bool.isRequired,
 
     // REQUIRED: data object to put into helmet
-    helmetData: PropTypes.object.shape({
+    helmetData: PropTypes.shape({
       // REQUIRED: string title data
       title: PropTypes.string.isRequired,
       // REQUIRED: object with meta data
-      meta: PropTypes.object.shape({
+      meta: PropTypes.shape({
         // REQUIRED: string website url
         website: PropTypes.string.isRequired,
         // REQUIRED: string page title for social media
@@ -34,17 +35,13 @@ class Page extends React.Component {
     }).isRequired
   }
 
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     window.scrollTo(0, 0);
   }
 
   render() {
 
-    let { fetched, children, server, helmetData } = this.props;
+    let { helmetData, fetched } = this.props;
 
     return (
       <div>
@@ -59,8 +56,7 @@ class Page extends React.Component {
 				/>
 
         {
-          // Spinner if not fetched yet
-          (!fetched || server) &&
+          !fetched &&
           <div className={ styles.page } key="page-spinner" className={ styles.spinner }></div>
         }
 
@@ -72,8 +68,9 @@ class Page extends React.Component {
           transitionEnterTimeout={800}
           transitionLeaveTimeout={1}
       	>
-          { fetched && !server &&
-            <div className={ styles.page } key="page-children-">{ this.props.children }</div>
+          {
+            fetched &&
+            <div className={ styles.page } key="page-children">{ this.props.children }</div>
           }
         </CSSTransitionGroup>
       </div>

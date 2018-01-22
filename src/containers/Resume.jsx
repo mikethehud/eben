@@ -31,18 +31,20 @@ class Resume extends React.Component {
 	}
 
 	componentDidMount() {
-    let before = this.props.experiences.lastFetched;
+
+    let { experiences, dispatch } = this.props;
+
+    let before = experiences.lastFetched;
     let now = + Date.now();
 
     if(!before || (now - before) > 100000) {
-      this.props.dispatch(fetchExperiences());
-    }
-    else {
-      console.log("Not fetching yet");
+      dispatch(fetchExperiences());
     }
 	}
 
 	render() {
+
+    let { experiences } = this.props;
 
     // For helmet
     let helmetData = {
@@ -54,7 +56,7 @@ class Resume extends React.Component {
     }
 
 		return (
-      <Page fetched={Boolean(this.props.experiences && this.props.experiences.all.length > 0)} helmetData={helmetData}>
+      <Page fetched={Boolean(experiences && experiences.all.length > 0)} helmetData={helmetData}>
         <div className="container">
           <MiniDivider />
   				<h1 className="doubleHeader">
@@ -65,9 +67,9 @@ class Resume extends React.Component {
             <Grid.Column cols={6}>
               <h2>Career</h2>
               {
-                this.props.experiences &&
-                this.props.experiences.all.length > 0 &&
-                this.props.experiences.all.map((experience, i) => <Experience key={i} {...experience} />)
+                experiences &&
+                experiences.all.length > 0 &&
+                experiences.all.map((experience, i) => <Experience key={i} {...experience} />)
               }
             </Grid.Column>
             <Grid.Column cols={5} pull className={ styles.secondRow }>
@@ -76,7 +78,7 @@ class Resume extends React.Component {
                 title = "University of Tübingen"
                 location = "Germany"
                 role = "Bachelor of Science"
-                content = "BSc. in "Media and Computer Science" with a focus on human computer interaction and web development."
+                content = {"BSc. in \"Media and Computer Science\" with a focus on human computer interaction and web development."}
                 start_date = "2011-10-01"
                 end_date = "2015-08-31"
               />

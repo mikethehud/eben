@@ -24,11 +24,11 @@ class Experience extends React.Component {
     responsibilities: PropTypes.string,
 
     // REQUIRED: start date
-    start_date: PropTypes.instanceOf(Date).isRequired,
+    start_date: PropTypes.string.isRequired,
 
     // REQUIRED: end date
     // => when this is 1990-01-01, it is a current role
-    end_date: PropTypes.instanceOf(Date).isRequired.
+    end_date: PropTypes.string.isRequired
   }
 
   render() {
