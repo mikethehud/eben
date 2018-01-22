@@ -50472,7 +50472,7 @@ var Resume = function (_React$Component) {
       // For helmet
 
       var helmetData = {
-        title: "EBEN / Résumé — Mike Hudson Full-Stack",
+        title: "Résumé — Mike Hudson Full-Stack",
         meta: {
           title: "Résumé—Professional Experience and Education of Mike Hudson.",
           website: "http://eben.co.nz/resume/"
@@ -51980,8 +51980,8 @@ var Logo = function (_React$Component) {
 
     value: function render() {
       return _react2.default.createElement(
-        "div",
-        null,
+        _reactRouterDom.Link,
+        { to: "/" },
         _react2.default.createElement("img", { src: _Logo2.default, alt: "eben Logo", className: _logo2.default.image }),
         _react2.default.createElement(
           "div",

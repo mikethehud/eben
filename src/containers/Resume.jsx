@@ -48,7 +48,7 @@ class Resume extends React.Component {
 
     // For helmet
     let helmetData = {
-      title: "EBEN / Résumé — Mike Hudson Full-Stack",
+      title: "Résumé — Mike Hudson Full-Stack",
       meta: {
         title: "Résumé—Professional Experience and Education of Mike Hudson.",
         website: "http://eben.co.nz/resume/"
