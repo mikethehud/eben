@@ -23,7 +23,7 @@ export default ({ markup, helmet, stylesheet, initialData }) => {
 				<meta property="og:description" content="I work with clients, agencies and teams to find intuitive solutions to complex problems and build sustainable and clean software. My skills include various technologies in the different web stack layers.">
 				<meta property="og:site_name" content="EBEN">
 				<meta property="og:type" content="website">
-				<meta property="og:image" content="http://eben.co.nz:8080/storage/uploads/00000000030.jpg">
+				<meta property="og:image" content="http://eben.co.nz:8080/storage/uploads/00000000031.png">
 				<link href="https://fonts.googleapis.com/css?family=Poppins:300,600,900" rel="stylesheet">
 				${helmet.title.toString()}
 				${helmet.meta.toString()}
