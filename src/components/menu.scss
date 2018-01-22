@@ -19,6 +19,7 @@
     margin-left:3em;
     &:first-of-type { margin-left:0px; }
     line-height:2;
+    &:before { margin-top: 3px }
   }
 
   @media only screen and (max-width: $breakpointOne) {
