@@ -51713,7 +51713,7 @@ var CaseStudy = function (_React$Component) {
 
         // For helmet
         var helmetData = {
-          title: "EBEN / Case Study",
+          title: "Case Study",
           meta: {
             title: "Case Study",
             website: "http://eben.co.nz/projects/"
@@ -51724,7 +51724,7 @@ var CaseStudy = function (_React$Component) {
 
         // For helmet
         var _helmetData = {
-          title: "EBEN / Case Study — " + currentProject.name,
+          title: "Case Study — " + currentProject.name,
           meta: {
             title: "Case Study — " + currentProject.name,
             website: "http://eben.co.nz/study/" + currentProject.slug

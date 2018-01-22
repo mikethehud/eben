@@ -62,7 +62,7 @@ class CaseStudy extends React.Component {
 
       // For helmet
       let helmetData = {
-        title: "EBEN / Case Study",
+        title: "Case Study",
         meta: {
           title: "Case Study",
           website: "http://eben.co.nz/projects/"
@@ -75,7 +75,7 @@ class CaseStudy extends React.Component {
 
       // For helmet
       let helmetData = {
-        title: "EBEN / Case Study — " + currentProject.name,
+        title: "Case Study — " + currentProject.name,
         meta: {
           title: "Case Study — " + currentProject.name,
           website: "http://eben.co.nz/study/" + currentProject.slug
